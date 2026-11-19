@@ -74,7 +74,7 @@
       /* ---------- Cards & steps ---------- */
       .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(18px,3.5vw,30px);margin-bottom:18px}
       .stepper{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-      .stepper .st{flex:1 1 120px;display:flex;align-items:center;gap:9px;background:#f2f8fa;border:1.5px solid var(--line);border-radius:12px;padding:9px 12px;font-weight:800;font-size:14.5px;color:var(--muted)}
+      .stepper .st{flex:1 1 120px;display:flex;align-items:center;gap:9px;background:#f2f8fa;border:1.5px solid var(--line);border-radius:12px;padding:9px 12px;font-weight:800;font-size:14.5px;color:var(--muted);cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
       .stepper .st .n{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:#c9dde3;color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px}
       .stepper .st.on{background:var(--teal-soft);border-color:var(--teal);color:var(--navy)}
       .stepper .st.on .n{background:var(--teal);color:#fff}
@@ -244,11 +244,11 @@
       <!-- ============ VIEW: HOME / STEP 1 ============ -->
       <main id="view-home" class="view active">
         <section class="card" aria-labelledby="homeTitle">
-          <div class="stepper" aria-hidden="true">
-            <div class="st on"><span class="n">1</span> Your Info</div>
-            <div class="st"><span class="n">2</span> Choose Class</div>
-            <div class="st"><span class="n">3</span> Choose Subject</div>
-            <div class="st"><span class="n">4</span> Start Test</div>
+          <div class="stepper">
+            <div class="st on" data-step="home"><span class="n">1</span> Your Info</div>
+            <div class="stNone" data-step="class"><span class="n">2</span> Choose Class</div>
+            <div class="stNone" data-step="subject"><span class="n">3</span> Choose Subject</div>
+            <div class="stNone" data-step="test"><span class="n">4</span> Start Test</div>
           </div>
           <h2 class="view-title" id="homeTitle">Step 1 — Student Information</h2>
           <p class="guide">Write your name and school name (optional). <span class="ur" dir="rtl" lang="ur">اپنا نام اور سکول کا نام لکھیں — یہ لازمی نہیں ہے۔</span></p>
@@ -290,11 +290,11 @@
       <!-- ============ VIEW: STEP 2 CLASS ============ -->
       <section id="view-class" class="view" aria-labelledby="classTitle">
         <div class="card">
-          <div class="stepper" aria-hidden="true">
-            <div class="st done"><span class="n">✓</span> Your Info</div>
-            <div class="st on"><span class="n">2</span> Choose Class</div>
-            <div class="st"><span class="n">3</span> Choose Subject</div>
-            <div class="st"><span class="n">4</span> Start Test</div>
+          <div class="stepper">
+            <div class="st done" data-step="home"><span class="n">✓</span> Your Info</div>
+            <div class="st on" data-step="class"><span class="n">2</span> Choose Class</div>
+            <div class="stNone" data-step="subject"><span class="n">3</span> Choose Subject</div>
+            <div class="stNone" data-step="test"><span class="n">4</span> Start Test</div>
           </div>
           <h2 class="view-title" id="classTitle">Step 2 — Choose Your Class</h2>
           <p class="guide">Tap your class. <span class="ur" dir="rtl" lang="ur">اپنی جماعت پر کلک کریں۔</span></p>
@@ -309,11 +309,11 @@
       <!-- ============ VIEW: STEP 3 SUBJECT ============ -->
       <section id="view-subject" class="view" aria-labelledby="subjTitle">
         <div class="card">
-          <div class="stepper" aria-hidden="true">
-            <div class="st done"><span class="n">✓</span> Your Info</div>
-            <div class="st done"><span class="n">✓</span> Choose Class</div>
-            <div class="st on"><span class="n">3</span> Choose Subject</div>
-            <div class="st"><span class="n">4</span> Start Test</div>
+          <div class="stepper">
+            <div class="st done" data-step="home"><span class="n">✓</span> Your Info</div>
+            <div class="st done" data-step="class"><span class="n">✓</span> Choose Class</div>
+            <div class="st on" data-step="subject"><span class="n">3</span> Choose Subject</div>
+            <div class="stNone" data-step="test"><span class="n">4</span> Start Test</div>
           </div>
           <h2 class="view-title" id="subjTitle">Step 3 — Choose Your Subject</h2>
           <p class="guide">Tap a subject to start its test. <span class="ur" dir="rtl" lang="ur">جس مضمون کا ٹیسٹ دینا ہے، اس پر کلک کریں۔</span></p>
@@ -327,11 +327,11 @@
       <!-- ============ VIEW: STEP 4 TEST ============ -->
       <section id="view-test" class="view" aria-labelledby="testTitle">
         <div class="card">
-          <div class="stepper" aria-hidden="true">
-            <div class="st done"><span class="n">✓</span> Your Info</div>
-            <div class="st done"><span class="n">✓</span> Choose Class</div>
-            <div class="st done"><span class="n">✓</span> Choose Subject</div>
-            <div class="st on"><span class="n">4</span> Test</div>
+          <div class="stepper">
+            <div class="st done" data-step="home"><span class="n">✓</span> Your Info</div>
+            <div class="st done" data-step="class"><span class="n">✓</span> Choose Class</div>
+            <div class="st done" data-step="subject"><span class="n">✓</span> Choose Subject</div>
+            <div class="st on" data-step="test"><span class="n">4</span> Test</div>
           </div>
           <h2 class="view-title" id="testTitle">Test</h2>
           <div class="qmeta"><span id="qCount">Question 1 of 10</span><span>Score: <b id="qScore">0</b></span></div>
@@ -1603,6 +1603,15 @@
       var gotos = document.querySelectorAll("[data-goto]");
       for (var i=0;i<gotos.length;i++){
         gotos[i].addEventListener("click", function(){ showView(this.getAttribute("data-goto")); });
+      }
+      var stepPills = document.querySelectorAll("[data-step]");
+      for (var sp=0;sp<stepPills.length;sp++){
+        stepPills[sp].addEventListener("click", function(){
+          var t = this.getAttribute("data-step");
+          if (t==="home"){ showView("home"); }
+          else if (t==="class"){ showView("class"); }
+          else { showView(state.selClass ? "subject" : "class"); }
+        });
       }
       var navs = document.querySelectorAll("[data-nav]");
       for (var j=0;j<navs.length;j++){
